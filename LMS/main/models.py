@@ -37,9 +37,18 @@ class BorrowRecord(models.Model):
     due_date = models.DateTimeField(default=timezone.now() + timedelta(days=14))
     return_date = models.DateTimeField(null=True, blank=True)
     is_returned = models.BooleanField(default=False)
+    is_approved = models.BooleanField(default=False)
+
+    @property
+    def status(self):
+        if self.is_returned:
+            return "Returned"
+        if not self.is_approved:
+            return "Pending"
+        return "Borrowed"
 
     def __str__(self):
-        return f"{self.user.username} - {self.book.title}"
+        return f"{self.user.username} - {self.book.title} ({self.status})"
 
     def is_overdue(self):
         return not self.is_returned and timezone.now() > self.due_date

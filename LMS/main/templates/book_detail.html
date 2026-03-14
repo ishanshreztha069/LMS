@@ -1,18 +1,18 @@
 <!-- Load static files for CSS -->
 {% load static %}
 
-<!-- Standard HTML5 document structure -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic meta tags for character encoding and responsiveness -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Dynamic page title using Django template variable -->
+
     <title>{{ book.title }} - LMS</title>
 
-    <!-- Link to custom CSS file -->
+    
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
@@ -165,6 +165,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for alerts -->
+    <script>
+        {% if alert_message %}
+            alert("{{ alert_message }}");
+        {% endif %}
+    </script>
 </body>
 </html>
 

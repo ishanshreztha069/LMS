@@ -1,22 +1,28 @@
 {% load static %}
+{# Load static files so we can use the {% static %} template tag for CSS/images #}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Page metadata and linked CSS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borrow Book - LMS</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body class="borrow-body">
+    <!-- Site header: brand + navigation -->
     <header class="borrow-header">
         <h1 class="header-title">Library Management System</h1>
         <nav class="borrow-nav">
+            <!-- Always-visible navigation links -->
             <a href="{% url 'home' %}" class="nav-link">Home</a>
             <a href="{% url 'book_list' %}" class="nav-link">Books</a>
+            <!-- Show profile/logout only when the user is authenticated -->
             {% if request.user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="nav-link">Profile</a>
                 <a href="{% url 'logout' %}" class="nav-link">Logout</a>
             {% else %}
+                <!-- Otherwise show login/register links -->
                 <a href="{% url 'login' %}" class="nav-link">Login</a>
                 <a href="{% url 'register' %}" class="nav-link">Register</a>
             {% endif %}
@@ -24,22 +30,33 @@
     </header>
     <main class="borrow-main">
         <div class="borrow-container">
+            {# Django messages framework: display any queued messages (errors, success, info) #}
             {% if messages %}
                 {% for message in messages %}
+                    <!-- Each message may have tags like 'success' or 'error' used for styling -->
                     <div class="alert alert-{{ message.tags }}">
                         {{ message }}
                     </div>
                 {% endfor %}
             {% endif %}
             
+            {#
+                Check the first message text for success keywords. This template uses a
+                simple heuristic: if the first message contains 'successfully' or 'borrowed',
+                treat the operation as successful and show the success UI.
+                Note: this relies on the view adding such a message when borrowing succeeds.
+            #}
             {% if 'successfully' in messages.0.message|default:'' or 'borrowed' in messages.0.message|default:'' %}
+                <!-- Success state shown when borrowing succeeds -->
                 <h2 class="borrow-title">Book Borrowed Successfully</h2>
                 <p class="borrow-message">You have successfully borrowed the book.</p>
                 <div class="borrow-actions">
+                    <!-- Quick actions after success -->
                     <a href="{% url 'book_list' %}" class="btn back-btn">Back to Books</a>
                     <a href="{% url 'profile' %}" class="btn profile-btn">View Profile</a>
                 </div>
             {% else %}
+                <!-- Fallback / failure state when the book cannot be borrowed -->
                 <h2 class="borrow-title">Cannot Borrow Book</h2>
                 <p class="borrow-message">This book is not available for borrowing at this time.</p>
                 <div class="borrow-actions">
@@ -48,6 +65,7 @@
             {% endif %}
         </div>
     </main>
+    <!-- Page footer with site/company info -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">

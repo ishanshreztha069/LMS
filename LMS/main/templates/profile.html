@@ -114,13 +114,11 @@
                                             {{ record.due_date|date:"M d, Y" }}
                                         </span>
                                     </p>
+                                    <p class="status"><strong class="detail-label">Status:</strong> {{ record.status }}</p>
                                     {% if record.is_overdue %}
                                         <p class="overdue-warning">⚠️ Overdue</p>
                                     {% endif %}
                                 </div>
-
-                                <!-- Return book link -->
-                                <a href="{% url 'return_book' record.pk %}" class="return-btn">Return Book</a>
                             </div>
                         {% endfor %}
                     </div>
