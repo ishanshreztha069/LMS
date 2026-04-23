@@ -3,14 +3,14 @@
 A Django-based web application for managing a library's books, authors, categories, and user borrowing records, developed for the BCA 4th Semester lab report.
 
 ## 👥 Team Members
-* Ishan Shrestha (@ishanshreztha069)
-* ronin-x3
+* [Ishan Shrestha](https://github.com/ishanshreztha069)
+* [ronin-x3](https://github.com/ronin-x3)
 
 ## 🛠 Technical Specifications
-* Architecture: Django MVT (Model-View-Template)
-* Database: MySQL (Relational Schema)
-* Frontend: HTML5, CSS3, JavaScript
-* Backend: Python 3.x
+* **Architecture:** Django MVT (Model-View-Template)
+* **Database:** MySQL (Relational Schema)
+* **Frontend:** HTML5, CSS3, JavaScript
+* **Backend:** Python 3.x
 
 ## 🚀 Features
 - User registration and authentication
@@ -22,23 +22,22 @@ A Django-based web application for managing a library's books, authors, categori
 
 ## 💻 Setup Instructions
 
-1. Clone the repository or navigate to the LMS directory:
-   git clone https://github.com/ishanshreztha069/LMS.git
+```bash
+# 1. Clone the repository
+git clone [https://github.com/ishanshreztha069/LMS.git](https://github.com/ishanshreztha069/LMS.git)
 
-2. Install dependencies:
-   pip install -r requirements.txt
+# 2. Install dependencies
+pip install -r requirements.txt
 
-3. Run migrations:
-   python manage.py makemigrations
-   python manage.py migrate
+# 3. Run migrations
+python manage.py makemigrations
+python manage.py migrate
 
-4. Create a superuser:
-   python manage.py createsuperuser
+# 4. Create a superuser (Admin)
+python manage.py createsuperuser
 
-5. Run the development server:
-   python manage.py runserver
-
-6. Access the application at http://127.0.0.1:8000/
+# 5. Run the development server
+python manage.py runserver
 
 ## 📖 Usage
 - Register a new account or login with existing credentials.
