@@ -1,25 +1,54 @@
 # Library Management System (LMS)
 
-### 🎓 Project Overview
-This is a collaborative web-based application developed for the **BCA 4th Semester** lab report. The system automates library operations, including book tracking, member management, and transaction records using the Django MVT architecture.
+A Django-based web application for managing a library's books, authors, categories, and user borrowing records, developed for the BCA 4th Semester lab report.
 
-### 👥 Team Members
-* **Ishan Shrestha** (@ishanshreztha069) — Lead Developer: Database Schema, Django View Logic, and UI Styling.
-* **ronin-x3** — Collaborative Developer: Project Architecture and Core Functionality.
+## 👥 Team Members
+* Ishan Shrestha (@ishanshreztha069)
+* ronin-x3
 
-### 🛠 Technical Specifications
-* **Languages:** HTML (61%), CSS (24.3%), Python (14.7%)
-* **Framework:** Django (MVT Architecture)
-* **Database:** MySQL 
+## 🛠 Technical Specifications
+* Architecture: Django MVT (Model-View-Template)
+* Database: MySQL (Relational Schema)
+* Frontend: HTML5, CSS3, JavaScript
+* Backend: Python 3.x
 
-### 📌 Key Contributions
-* **Backend Logic:** Developed core Python/Django views for book issuing and student records.
-* **Database Design:** Structured relational tables in MySQL for efficient data retrieval.
-* **Frontend Design:** Created a responsive interface using HTML and CSS for library management tasks.
+## 🚀 Features
+- User registration and authentication
+- Book catalog with search functionality
+- Borrowing and returning books
+- User profiles with borrowed book history
+- Admin dashboard for managing library data
+- Responsive design for mobile and desktop
 
-### 🚀 Setup Instructions
-To run this project locally, follow these steps:
+## 💻 Setup Instructions
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/ishanshreztha069/LMS.git](https://github.com/ishanshreztha069/LMS.git)
+1. Clone the repository or navigate to the LMS directory:
+   git clone https://github.com/ishanshreztha069/LMS.git
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Run migrations:
+   python manage.py makemigrations
+   python manage.py migrate
+
+4. Create a superuser:
+   python manage.py createsuperuser
+
+5. Run the development server:
+   python manage.py runserver
+
+6. Access the application at http://127.0.0.1:8000/
+
+## 📖 Usage
+- Register a new account or login with existing credentials.
+- Browse and search for books in the catalog.
+- Borrow available books and view them in your profile.
+- Return books from your profile.
+- Admin users can access the admin dashboard to manage books, authors, categories, and borrow records.
+
+## 📂 Project Structure
+- LMS/: Main Django project directory
+- main/: Main app containing models, views, templates, and static files
+- db.sqlite3: SQLite database file (used for local testing/backups)
+- manage.py: Django management script
